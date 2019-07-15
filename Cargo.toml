@@ -1,0 +1,16 @@
+[package]
+name = "gfy-hash"
+version = "0.1.0"
+authors = ["mz2212 <michaelpulliam1@gmail.com>"]
+edition = "2018"
+
+[lib]
+name = "gfyhash"
+path = "src/lib.rs"
+
+[[bin]]
+name = "gfyhash-bin"
+path = "src/bin.rs"
+
+[dependencies]
+crc = "^1.8"
