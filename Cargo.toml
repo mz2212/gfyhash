@@ -3,6 +3,11 @@ name = "gfy-hash"
 version = "0.1.0"
 authors = ["mz2212 <michaelpulliam1@gmail.com>"]
 edition = "2018"
+description = "A library to create gfyurl style hashes"
+repository = "https://github.com/mz2212/gfyhash"
+readme = "readme.md"
+keywords = ["gfycat", "hash", "gfy"]
+license = "MIT"
 
 [lib]
 name = "gfyhash"
@@ -14,3 +19,4 @@ path = "src/bin.rs"
 
 [dependencies]
 crc = "^1.8"
+
