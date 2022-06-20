@@ -1,13 +1,17 @@
 [package]
-name = "gfy-hash"
-version = "0.1.0"
-authors = ["mz2212 <michaelpulliam1@gmail.com>"]
-edition = "2018"
-description = "A library to create gfyurl style hashes"
+name = "gfyhash"
+version = "0.2.0"
+authors = ["Mike <michaelpulliam1@gmail.com>"]
+edition = "2021"
+description = "A crate to create gfycat url style hashes"
 repository = "https://github.com/mz2212/gfyhash"
-readme = "readme.md"
+readme = "README.md"
 keywords = ["gfycat", "hash", "gfy"]
 license = "MIT"
+
+[features]
+default = ["list_builtin"]
+list_builtin = []
 
 [lib]
 name = "gfyhash"
@@ -18,5 +22,4 @@ name = "gfyhash-bin"
 path = "src/bin.rs"
 
 [dependencies]
-crc = "^1.8"
-
+wyhash = "0.5"
