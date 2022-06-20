@@ -9,5 +9,5 @@ Some basic usage is like so:
 use gfyhash::gfyhash;
 let bar = String::from("foo");
 // Yeah, the function signature isn't super pretty, but Rust doesn't allow for default arguments
-println!("{}" gfyhash(&bar, None, None, None))
+println!("{}" gfyhash(&bar, None, None, None).unwrap());
 ```
