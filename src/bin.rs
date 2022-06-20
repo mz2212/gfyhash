@@ -11,6 +11,7 @@ fn main() {
 
 	let string = env::args().last().unwrap();
 
-	println!("{}", gfyhash(&string, None, None, None));
-	println!("{}", gfyhash(&string, 2, adjectives, animals))
+	println!("{}", gfyhash(&string, None, None, None).unwrap());
+	println!("{}", gfyhash(&string, 2, adjectives, animals).unwrap());
+	println!("{}", gfyhash(&"".to_string(), None, None, None).unwrap());
 }
