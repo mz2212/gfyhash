@@ -1,5 +1,5 @@
 [package]
-name = "gfyhash"
+name = "gfy-hash"
 version = "0.3.0"
 authors = ["Mike <michaelpulliam1@gmail.com>"]
 edition = "2021"
