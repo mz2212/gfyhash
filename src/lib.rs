@@ -49,7 +49,7 @@ pub fn gfyhash(data: &impl Hashable, adjective_count: impl Into<Option<usize>>, 
 	
 	
 	let seed = 42; // I'm not entirely sure what seed does, but I'm sure you get why I chose it
-	let sum = wyhash(data.as_bytes(), seed) as usize;
+	let sum = wyhash(data.as_bytes().as_slice(), seed) as usize;
 	let mut hash = String::from("");
 	for i in 1..=adjective_count {
 		hash += &(adjectives[(sum.wrapping_mul(i)) % adjectives.len()]);
@@ -58,19 +58,31 @@ pub fn gfyhash(data: &impl Hashable, adjective_count: impl Into<Option<usize>>, 
 	Ok(hash)
 }
 
-/// Anything that can be represented as an array of bytes that someone would like to be "gfyhashed"
+/// Anything that can be represented as a `Vec<u8>` that someone would like to be "gfyhashed"
 pub trait Hashable {
-	fn as_bytes(&self) -> &[u8];
+	fn as_bytes(&self) -> Vec<u8>;
 }
 
 impl Hashable for std::string::String {
-	fn as_bytes(&self) -> &[u8] {
-		self.as_bytes()
+	fn as_bytes(&self) -> Vec<u8> {
+		self.as_bytes().to_vec()
 	}
 }
 
 impl Hashable for &[u8] {
-	fn as_bytes(&self) -> &[u8] {
-		self
+	fn as_bytes(&self) -> Vec<u8> {
+		self.to_vec()
+	}
+}
+
+impl Hashable for u8 {
+	fn as_bytes(&self) -> Vec<u8> {
+		vec![*self]
+	}
+}
+
+impl Hashable for usize {
+	fn as_bytes(&self) -> Vec<u8> {
+		self.to_le_bytes().to_vec()
 	}
 }

@@ -1,6 +1,6 @@
 [package]
 name = "gfy-hash"
-version = "0.3.0"
+version = "0.4.0"
 authors = ["Mike <michaelpulliam1@gmail.com>"]
 edition = "2021"
 description = "A crate to create gfycat url style hashes"
